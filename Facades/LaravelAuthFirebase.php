@@ -2,7 +2,7 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Facades;
 
-use Illumilate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Facade;
 
 class LaravelAuthFirebase extends Facade
 {
