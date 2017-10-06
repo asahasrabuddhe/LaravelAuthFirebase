@@ -8,7 +8,9 @@
         "email": "ajitem.s@outlook.com"
     }],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "kreait/firebase-php": "^3.2"
+    },
     "extra": {
         "laravel": {
             "providers": [
