@@ -1,0 +1,24 @@
+{
+    "name": "asahasrabuddhe/laravel-auth-firebase",
+    "description": "Package to provide easy integration of Firebase Authentication with Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Ajitem Sahasrabuddhe",
+        "email": "ajitem.s@outlook.com"
+    }],
+    "minimum-stability": "stable",
+    "require": {
+        "kreait/firebase-php": "^3.2"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Asahasrabuddhe\\LaravelAuthFirebase\\LaravelAuthFirebaseServiceProvider"
+            ],
+            "aliases": {
+                "Firebase": "Asahasrabuddhe\\LaravelAuthFirebase\\Facades\\LaravelAuthFirebase"
+            }
+        }
+    }
+}
