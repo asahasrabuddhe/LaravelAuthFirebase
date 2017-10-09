@@ -128,8 +128,6 @@ class FirebaseUserProvider implements UserProvider
         }
         $user = $this->auth->getUserByEmailAndPassword($username, $password);
 
-        dd($user);
-
         return $user;
     }
 
