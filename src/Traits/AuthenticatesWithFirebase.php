@@ -3,8 +3,8 @@
 namespace Asahasrabuddhe\LaravelAuthFirebase\Traits;
 
 use Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating;
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating;
 use Asahasrabuddhe\LaravelAuthFirebase\Events\UserDeleting;
+use Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating;
 
 trait AuthenticatesWithFirebase
 {
@@ -15,8 +15,8 @@ trait AuthenticatesWithFirebase
      */
     protected $events = [
         'creating'   => UserCreating::class,
-        'updating' => UserUpdating::class,
-        'deleting' => UserDeleting::class
+        'updating'   => UserUpdating::class,
+        'deleting'   => UserDeleting::class,
     ];
 
     public function getDispatchedEvents()

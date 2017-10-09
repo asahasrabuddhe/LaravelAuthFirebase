@@ -2,8 +2,6 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Events;
 
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserAbstractEvent;
-
 class UserCreating extends UserAbstractEvent
 {
     /**

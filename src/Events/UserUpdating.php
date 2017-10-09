@@ -2,8 +2,6 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Events;
 
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserAbstractEvent;
-
 class UserUpdating extends UserAbstractEvent
 {
     /**

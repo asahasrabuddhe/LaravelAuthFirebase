@@ -2,9 +2,6 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
 use Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating as UserUpdatingEvent;
 
 class UserUpdating
@@ -22,7 +19,8 @@ class UserUpdating
     /**
      * Handle the event.
      *
-     * @param  \Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating  $event
+     * @param \Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating $event
+     *
      * @return void
      */
     public function handle(UserUpdatingEvent $event)
