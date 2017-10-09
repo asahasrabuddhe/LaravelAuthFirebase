@@ -25,6 +25,7 @@
         "laravel": {
             "providers": [
                 "Asahasrabuddhe\\LaravelAuthFirebase\\LaravelAuthFirebaseServiceProvider"
+                "Asahasrabuddhe\\LaravelAuthFirebase\\Providers\\LaravelAuthFirebaseEventServiceProvider"
             ],
             "aliases": {
                 "Firebase": "Asahasrabuddhe\\LaravelAuthFirebase\\Facades\\LaravelAuthFirebase"
