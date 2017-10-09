@@ -2,8 +2,6 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Events;
 
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserAbstractEvent;
-
 class UserDeleting extends UserAbstractEvent
 {
     /**

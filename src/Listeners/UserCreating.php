@@ -2,7 +2,6 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Listeners;
 
-use Asahasrabuddhe\LaravelAuthFirebase\Listeners\UserAbstractListener;
 use Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating as UserCreatingEvent;
 
 class UserCreating extends UserAbstractListener
@@ -10,7 +9,8 @@ class UserCreating extends UserAbstractListener
     /**
      * Handle the event.
      *
-     * @param  \Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating  $event
+     * @param \Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating $event
+     *
      * @return void
      */
     public function handle(UserCreatingEvent $event)
