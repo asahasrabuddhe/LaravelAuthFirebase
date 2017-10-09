@@ -11,6 +11,11 @@
     "require": {
         "kreait/firebase-php": "^3.2"
     },
+    "autoload": {
+        "psr-4": {
+            "Asahasrabuddhe\\LaravelAuthFirebase\\": "src/"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
             "Asahasrabuddhe\\LaravelAuthFirebase\\Tests\\": "tests/"
