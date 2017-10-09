@@ -13,8 +13,14 @@ class LaravelAuthFirebaseEventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Asahasrabuddhe\LaravelAuthFirebase\Events\UserSaving' => [
-            'Asahasrabuddhe\LaravelAuthFirebase\Listeners\UserSaving',
+        'Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating' => [
+            'Asahasrabuddhe\LaravelAuthFirebase\Listeners\UserCreating',
+        ],
+        'Asahasrabuddhe\LaravelAuthFirebase\Events\UserDeleting' => [
+            'Asahasrabuddhe\LaravelAuthFirebase\Listeners\UserDeleting',
+        ],
+        'Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating' => [
+            'Asahasrabuddhe\LaravelAuthFirebase\Listeners\UserUpdating',
         ],
     ];
 

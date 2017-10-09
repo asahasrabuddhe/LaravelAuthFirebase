@@ -2,7 +2,9 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Traits;
 
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserSaving;
+use Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating;
+use Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating;
+use Asahasrabuddhe\LaravelAuthFirebase\Events\UserDeleting;
 
 trait AuthenticatesWithFirebase
 {
