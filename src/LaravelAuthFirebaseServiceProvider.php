@@ -16,7 +16,7 @@ class LaravelAuthFirebaseServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/Config/firebase.php' => config_path('firebase.php'),
+            __DIR__.'/Config/firebase.php' => config_path('firebase.php'),
         ], 'config');
     }
 
@@ -28,10 +28,10 @@ class LaravelAuthFirebaseServiceProvider extends ServiceProvider
     public function register()
     {
         Auth::provider('firebase', function ($app, array $config) {
-            return new FirebaseUserProvider;
+            return new FirebaseUserProvider();
         });
 
-        $this->mergeConfigFrom(__DIR__ . '/Config/firebase.php', 'firebase');
+        $this->mergeConfigFrom(__DIR__.'/Config/firebase.php', 'firebase');
 
         $this->app->singleton('laravel_auth_firebase', function ($app) {
             return new LaravelAuthFirebase();
