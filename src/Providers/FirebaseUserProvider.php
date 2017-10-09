@@ -5,7 +5,6 @@ namespace Asahasrabuddhe\LaravelAuthFirebase\Providers;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 use Kreait\Firebase;
-use Kreait\Firebase\Auth;
 use Kreait\Firebase\Auth\User;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
@@ -13,28 +12,28 @@ use Kreait\Firebase\ServiceAccount;
 class FirebaseUserProvider implements UserProvider
 {
     /**
-     * Firebase API Key
+     * Firebase API Key.
      *
      * @var string
      */
     protected $apiKey;
 
     /**
-     * Firebase ServiceAccount
+     * Firebase ServiceAccount.
      *
      * @var \Kreait\Firebase\ServiceAccount;
      */
     protected $serviceAccount;
 
     /**
-     * Firebase Application Instance
+     * Firebase Application Instance.
      *
      * @var \Kreait\Firebase;
      */
     protected $firebase;
 
     /**
-     * Firebase Application Instance
+     * Firebase Application Instance.
      *
      * @var \Kreait\Firebase\Auth;
      */
@@ -42,7 +41,7 @@ class FirebaseUserProvider implements UserProvider
 
     public function __construct()
     {
-        $this->apiKey         = config('firebase.api_key');
+        $this->apiKey = config('firebase.api_key');
         $this->serviceAccount = ServiceAccount::fromJsonFile(config('firebase.service_account_json_path'));
 
         $this->firebase = (new Factory())
@@ -55,7 +54,8 @@ class FirebaseUserProvider implements UserProvider
     /**
      * Retrieve a user by their unique identifier.
      *
-     * @param  mixed  $identifier
+     * @param mixed $identifier
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveById($identifier)
@@ -66,8 +66,9 @@ class FirebaseUserProvider implements UserProvider
     /**
      * Retrieve a user by their unique identifier and "remember me" token.
      *
-     * @param  mixed  $identifier
-     * @param  string  $token
+     * @param mixed  $identifier
+     * @param string $token
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveByToken($identifier, $token)
@@ -78,8 +79,9 @@ class FirebaseUserProvider implements UserProvider
     /**
      * Update the "remember me" token for the given user in storage.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @param  string  $token
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param string                                     $token
+     *
      * @return void
      */
     public function updateRememberToken(Authenticatable $user, $token)
@@ -90,7 +92,8 @@ class FirebaseUserProvider implements UserProvider
     /**
      * Create a user by the given credentials.
      *
-     * @param  array  $credentials
+     * @param array $credentials
+     *
      * @return \Kreait\Firebase\Auth\User
      */
     public function createByCredentials(array $credentials): User
@@ -103,7 +106,8 @@ class FirebaseUserProvider implements UserProvider
     /**
      * Retrieve a user by the given credentials.
      *
-     * @param  array  $credentials
+     * @param array $credentials
+     *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveByCredentials(array $credentials)
@@ -132,8 +136,9 @@ class FirebaseUserProvider implements UserProvider
     /**
      * Validate a user against the given credentials.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @param  array  $credentials
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param array                                      $credentials
+     *
      * @return bool
      */
     public function validateCredentials(Authenticatable $user, array $credentials)
