@@ -6,6 +6,6 @@ class LaravelAuthFirebase
 {
     public static function demo()
     {
-        return 'This f*n works!';
+        return config('firebase.service_account_json_path');
     }
 }

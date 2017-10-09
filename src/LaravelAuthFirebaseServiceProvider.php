@@ -2,6 +2,8 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase;
 
+use Asahasrabuddhe\LaravelAuthFirebase\Providers\FirebaseUserProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelAuthFirebaseServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class LaravelAuthFirebaseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/Config/firebase.php' => config_path('firebase.php'),
+        ], 'config');
     }
 
     /**
@@ -23,6 +27,12 @@ class LaravelAuthFirebaseServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        Auth::provider('firebase', function ($app, array $config) {
+            return new FirebaseUserProvider();
+        });
+
+        $this->mergeConfigFrom(__DIR__.'/Config/firebase.php', 'firebase');
+
         $this->app->singleton('laravel_auth_firebase', function ($app) {
             return new LaravelAuthFirebase();
         });
