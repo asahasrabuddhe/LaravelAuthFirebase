@@ -14,6 +14,6 @@ class ConfigurationTest extends TestCase
 	 */
 	public function testConfiguration()
 	{
-		$this->assertSame(Firebase::demo(), '');
+		$this->assertSame(Firebase::demo(), '<PATH_TO_SERVICE_ACCOUNT_JSON_FILE>');
 	}
 }
