@@ -11,10 +11,13 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\User;
 
-class UserAbstractEvent
+abstract class UserAbstractEvent
 {
 	use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    /**
+     * @var \App\User
+     */
     public $user;
 
     /**

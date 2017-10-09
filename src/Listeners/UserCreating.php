@@ -2,23 +2,11 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Listeners;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
+use Asahasrabuddhe\LaravelAuthFirebase\Listeners\UserAbstractListener;
 use Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating as UserCreatingEvent;
 
-class UserCreating
+class UserCreating extends UserAbstractListener
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
@@ -27,6 +15,11 @@ class UserCreating
      */
     public function handle(UserCreatingEvent $event)
     {
-        error_log($event->user->user_info);
+        $user_info = json_decode($event->user->user_info);
+
+        $firebaseUser = $this->userProvider->createByCredentials(['email' => $user_info->email, 'password' => $user_info->password]);
+
+        dump($firebaseUser);
+        dump($event->user);
     }
 }
