@@ -143,4 +143,19 @@ class FirebaseUserProvider implements UserProvider
     {
         return \Exception('Not Implemented');
     }
+
+    /**
+     * Update User profile
+     *
+     * @param \Kreait\Firebase\Auth\User
+     * @param array $userInfo
+     *
+     * @return \Kreait\Firebase\Auth\User
+     */
+    public function updateUser(User $user, array $userInfo): User
+    {
+        $user = $this->auth->updateUserProfile($user, $userInfo);
+
+        return $user;
+    }
 }
