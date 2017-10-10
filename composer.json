@@ -8,15 +8,7 @@
         "email": "ajitem.s@outlook.com"
     }],
     "minimum-stability": "stable",
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/asahasrabuddhe/firebase-php"
-        }
-    ],
-    "require": {
-        "kreait/firebase-php": "dev-feature/ajitem-auth"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
             "Asahasrabuddhe\\LaravelAuthFirebase\\": "src/"
@@ -30,8 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Asahasrabuddhe\\LaravelAuthFirebase\\LaravelAuthFirebaseServiceProvider",
-                "Asahasrabuddhe\\LaravelAuthFirebase\\Providers\\LaravelAuthFirebaseEventServiceProvider"
+                "Asahasrabuddhe\\LaravelAuthFirebase\\LaravelAuthFirebaseServiceProvider"
             ],
             "aliases": {
                 "Firebase": "Asahasrabuddhe\\LaravelAuthFirebase\\Facades\\LaravelAuthFirebase"

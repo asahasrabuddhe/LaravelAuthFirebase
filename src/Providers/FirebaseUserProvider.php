@@ -8,6 +8,7 @@ use Kreait\Firebase;
 use Kreait\Firebase\Auth\User;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
+use Hash;
 
 class FirebaseUserProvider implements UserProvider
 {
@@ -126,9 +127,8 @@ class FirebaseUserProvider implements UserProvider
         } else {
             throw new \Exception('Not Supported');
         }
-        $user = $this->auth->getUserByEmailAndPassword($username, $password);
 
-        return $user;
+        return \App\User::where('user_info->email', $username)->first();
     }
 
     /**
@@ -141,7 +141,34 @@ class FirebaseUserProvider implements UserProvider
      */
     public function validateCredentials(Authenticatable $user, array $credentials)
     {
-        return \Exception('Not Implemented');
+        $username = '';
+        $password = '';
+
+        if (count($credentials) == 2) {
+            foreach ($credentials as $key => $value) {
+                if ($key == 'password') {
+                    $password = $value;
+                } else {
+                    $username = $value;
+                }
+            }
+        } else {
+            throw new \Exception('Not Supported');
+        }
+
+        try {
+            $firebaseUser = $this->auth->getUserByEmailAndPassword($username, $password);
+
+            $user_info = json_decode($user->user_info);
+            
+            if( $user_info->email == $firebaseUser->getEmail() ) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     /**
