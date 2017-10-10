@@ -145,7 +145,7 @@ class FirebaseUserProvider implements UserProvider
     }
 
     /**
-     * Update User profile
+     * Update User profile.
      *
      * @param \Kreait\Firebase\Auth\User
      * @param array $userInfo
