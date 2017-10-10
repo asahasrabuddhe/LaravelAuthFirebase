@@ -2,25 +2,23 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Traits;
 
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserCreating;
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserUpdating;
-use Asahasrabuddhe\LaravelAuthFirebase\Events\UserDeleting;
+use Asahasrabuddhe\LaravelAuthFirebase\Providers\FirebaseUserProvider;
 
 trait AuthenticatesWithFirebase
 {
     /**
-     * @var array | Events
-     *
-     * Maps Eloquent events to Trait methods
+     * @var \Asahasrabuddhe\LaravelAuthFirebase\Providers\UserProvider
      */
-    protected $events = [
-        'creating'   => UserCreating::class,
-        'updating' => UserUpdating::class,
-        'deleting' => UserDeleting::class
-    ];
+    protected $userProvider;
 
-    public function getDispatchedEvents()
+    public function save(array $options = [])
     {
-        return $this->events;
+        $this->userProvider = new FirebaseUserProvider();
+
+        $user_info = json_decode($this->user_info);
+        $user = $this->userProvider->createByCredentials(['email' => $user_info->email, 'password' => $user_info->password ]);
+        dd( $user->idToken );
+
+        parent::save();
     }
 }
