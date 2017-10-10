@@ -36,7 +36,5 @@ class LaravelAuthFirebaseServiceProvider extends ServiceProvider
         $this->app->singleton('laravel_auth_firebase', function ($app) {
             return new LaravelAuthFirebase();
         });
-
-        $this->app->register(Providers\LaravelAuthFirebaseEventServiceProvider::class);
     }
 }
