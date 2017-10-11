@@ -13,6 +13,7 @@ class ConfigurationTest extends TestCase
      */
     public function testConfiguration()
     {
-        $this->assertSame(Firebase::demo(), '<PATH_TO_SERVICE_ACCOUNT_JSON_FILE>');
+        $this->assertSame(config('firebase.api_key'), '<FIREBASE_API_KEY>');
+        $this->assertSame(config('firebase.service_account_json_path'), '<PATH_TO_SERVICE_ACCOUNT_JSON_FILE>');
     }
 }

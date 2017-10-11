@@ -5,51 +5,22 @@ namespace Asahasrabuddhe\LaravelAuthFirebase\Providers;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 use Kreait\Firebase;
+use Kreait\Firebase\Auth;
 use Kreait\Firebase\Auth\User;
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
 use Hash;
 
 class FirebaseUserProvider implements UserProvider
 {
     /**
-     * Firebase API Key.
-     *
-     * @var string
-     */
-    protected $apiKey;
-
-    /**
-     * Firebase ServiceAccount.
-     *
-     * @var \Kreait\Firebase\ServiceAccount;
-     */
-    protected $serviceAccount;
-
-    /**
-     * Firebase Application Instance.
-     *
-     * @var \Kreait\Firebase;
-     */
-    protected $firebase;
-
-    /**
-     * Firebase Application Instance.
+     * Firebase Authentication Instance.
      *
      * @var \Kreait\Firebase\Auth;
      */
     protected $auth;
 
-    public function __construct()
+    public function __construct(Auth $auth)
     {
-        $this->apiKey = config('firebase.api_key');
-        $this->serviceAccount = ServiceAccount::fromJsonFile(config('firebase.service_account_json_path'));
-
-        $this->firebase = (new Factory())
-            ->withServiceAccountAndApiKey($this->serviceAccount, $this->apiKey)
-            ->create();
-
-        $this->auth = $this->firebase->getAuth();
+        $this->auth = $auth;
     }
 
     /**
