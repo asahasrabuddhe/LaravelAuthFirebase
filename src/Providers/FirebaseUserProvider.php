@@ -132,7 +132,6 @@ class FirebaseUserProvider implements UserProvider
             $firebaseUser = $this->auth->getUserByEmailAndPassword($username, $password);
 
             $user_info = json_decode($user->user_info);
-
             if ($user_info->email == $firebaseUser->getEmail()) {
                 return true;
             } else {
