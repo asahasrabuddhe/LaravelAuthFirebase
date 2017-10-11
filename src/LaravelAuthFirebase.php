@@ -2,12 +2,12 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase;
 
-use Kreait\Firebase\ServiceAccount;
 use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
 
 class LaravelAuthFirebase
 {
-	/**
+    /**
      * Firebase API Key.
      *
      * @var string
@@ -28,23 +28,23 @@ class LaravelAuthFirebase
      */
     protected $firebase;
 
-   	public function __construct(string $apiKey, ServiceAccount $serviceAccount)
-   	{
-   		$this->apiKey = $apiKey;
-   		$this->serviceAccount = $serviceAccount;
+    public function __construct(string $apiKey, ServiceAccount $serviceAccount)
+    {
+        $this->apiKey = $apiKey;
+        $this->serviceAccount = $serviceAccount;
 
-   		$this->firebase = (new Factory())
-		    ->withServiceAccountAndApiKey($serviceAccount, $apiKey)
-		    ->create();
-   	}
+        $this->firebase = (new Factory())
+            ->withServiceAccountAndApiKey($serviceAccount, $apiKey)
+            ->create();
+    }
 
-   	public function getAuthInstance()
-   	{
-   		return $this->firebase->getAuth();
-   	}
+    public function getAuthInstance()
+    {
+        return $this->firebase->getAuth();
+    }
 
-   	public function getDatabaseInstance()
-   	{
-   		return $this->firebase->getDatabase();
-   	}
+    public function getDatabaseInstance()
+    {
+        return $this->firebase->getDatabase();
+    }
 }

@@ -2,9 +2,9 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Traits;
 
+use App;
 use Asahasrabuddhe\LaravelAuthFirebase\Providers\FirebaseUserProvider;
 use Hash;
-use App;
 
 trait AuthenticatesWithFirebase
 {
