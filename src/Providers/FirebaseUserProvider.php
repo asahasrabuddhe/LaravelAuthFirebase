@@ -7,8 +7,6 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Kreait\Firebase;
 use Kreait\Firebase\Auth;
 use Kreait\Firebase\Auth\User;
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
 
 class FirebaseUserProvider implements UserProvider
 {
