@@ -7,7 +7,8 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Kreait\Firebase;
 use Kreait\Firebase\Auth;
 use Kreait\Firebase\Auth\User;
-use Hash;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
 
 class FirebaseUserProvider implements UserProvider
 {
@@ -131,8 +132,8 @@ class FirebaseUserProvider implements UserProvider
             $firebaseUser = $this->auth->getUserByEmailAndPassword($username, $password);
 
             $user_info = json_decode($user->user_info);
-            
-            if( $user_info->email == $firebaseUser->getEmail() ) {
+
+            if ($user_info->email == $firebaseUser->getEmail()) {
                 return true;
             } else {
                 return false;
@@ -143,7 +144,7 @@ class FirebaseUserProvider implements UserProvider
     }
 
     /**
-     * Update User profile
+     * Update User profile.
      *
      * @param \Kreait\Firebase\Auth\User
      * @param array $userInfo
