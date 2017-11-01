@@ -156,4 +156,19 @@ class FirebaseUserProvider implements UserProvider
 
         return $user;
     }
+
+    /**
+     * Update User password.
+     *
+     * @param \Kreait\Firebase\Auth\User
+     * @param string $password
+     *
+     * @return \Kreait\Firebase\Auth\User
+     */
+    public function changePassword(User $user, string $password): User
+    {
+        $user = $this->auth->changeUserPassword($user, $password);
+
+        return $user;
+    }
 }
