@@ -101,6 +101,31 @@ class FirebaseUserProvider implements UserProvider
         return \App\User::where('user_info->email', $username)->first();
     }
 
+    public function retrieveFirebaseUserByCredentials(array $credentials)
+    {
+        $username = '';
+        $password = '';
+
+        if (count($credentials) == 2) {
+            foreach ($credentials as $key => $value) {
+                if ($key == 'password') {
+                    $password = $value;
+                } else {
+                    $username = $value;
+                }
+            }
+        } else {
+            throw new \Exception('Not Supported');
+        }
+
+        try {
+            $firebaseUser = $this->auth->getUserByEmailAndPassword($username, $password);
+            return $firebaseUser;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
     /**
      * Validate a user against the given credentials.
      *
