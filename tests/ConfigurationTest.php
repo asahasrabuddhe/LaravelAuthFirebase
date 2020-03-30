@@ -2,8 +2,6 @@
 
 namespace Asahasrabuddhe\LaravelAuthFirebase\Tests;
 
-use Firebase;
-
 class ConfigurationTest extends TestCase
 {
     /**
