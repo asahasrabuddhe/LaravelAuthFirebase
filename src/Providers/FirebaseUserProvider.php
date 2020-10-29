@@ -120,6 +120,7 @@ class FirebaseUserProvider implements UserProvider
 
         try {
             $firebaseUser = $this->auth->getUserByEmailAndPassword($username, $password);
+
             return $firebaseUser;
         } catch (\Exception $e) {
             return false;
